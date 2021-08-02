@@ -1,12 +1,16 @@
+import dashboard from "./pages/dashboard.js";
+import settings from "./pages/settings.js";
+import posts from "./pages/posts.js";
+
 function navigateTo(url){
     history.pushState(null, null, url);
     router();
 }
 
 async function router(){
-    const routes = [{path: "/", view: () => console.log("viewing dashboard")},
-    {path: "/settings", view: () => console.log("viewing settings")},
-    {path: "/posts", view: () => console.log("viewing posts")}]
+    const routes = [{path: "/", view: dashboard},
+    {path: "/settings", view: settings},
+    {path: "/posts", view: posts}]
 
     const potentialMatches = routes.map(route => {
         return {
@@ -21,8 +25,9 @@ async function router(){
             isMatch: true
         }
     }
-    match.route.view();
-
+    console.log(match.route);
+    let view = new match.route.view();
+    document.getElementById('appBody').innerHTML = await view.getHtml();
 
 }
 window.addEventListener('popstate',router);
