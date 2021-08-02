@@ -1,0 +1,22 @@
+{
+  "name": "singlepage_app",
+  "version": "1.0.0",
+  "description": "simple list app using single page implementation. Made with express and nodejs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "single",
+    "page",
+    "app",
+    "express",
+    "nodejs"
+  ],
+  "author": "Twentyquid",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
